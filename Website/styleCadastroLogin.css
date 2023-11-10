@@ -63,14 +63,3 @@ body{
 .container .cadastro i {
     position: inherit;
 }
-
-.input-icon-wrapper {
-    position: relative;
-}
-
-.input-icon-wrapper i {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-}
