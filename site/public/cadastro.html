@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/styleCadastroLogin.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="website icon" type="png" href="../public/assets/imgs/logo.png">
+        <script src="https://kit.fontawesome.com/ce9ef0d266.js" crossorigin="anonymous"></script>
+        <title>Cadastro</title>
+    </head>
+
+    <div class="header">
+        <div class="containerHeader">
+            <div class="Branding">
+                <img src="../public/assets/imgs/logo.png" alt="">
+                <h2>
+                    Project Lang
+                </h2>
+            </div>
+            <ul>
+                <div class="containerNav">
+                    <a href="index.html">
+                        <li>Home</li>
+                    </a>
+                    <a href="#Sobre">
+                        <li>Sobre</li>
+                    </a>
+
+                </div>
+                <div class="containerLogCad">
+                    <a href="cadastro.html" id="homeCad">
+                        <li>Cadastro</li>
+                    </a>
+                    <a href="login.html" id="homeLogin">
+                        <li>Login</li>
+                    </a>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <body>
+        <div class="tudo">
+
+            <div class="container">
+                <div class="cadastro">
+                    <h2>Cadastro</h2>
+                    <div class="campo">
+                        <input type="text" id="input_cadastroUsername" placeholder="Nome de Usuário">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="campo">
+                        <input type="email" id="input_cadastroEmail" placeholder="Email">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="campo">
+                        <input type="password" id="input_cadastroSenha" placeholder="Senha">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <div class="campo">
+                        <input type="password" id="input_cadastroSenhaRepetir" placeholder="Confirmar Senha">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+
+                    <button onclick="cadastroCheck()">
+                        Cadastrar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </body>
+
+</html>
+
+<script>
+    function cadastroCheck() {
+        var nomeUsuario = input_cadastroUsername.value;
+        var emailUsuario = input_cadastroEmail.value;
+        var senhaUsuario = input_cadastroSenha.value;
+        var senhaConfirmacao = input_cadastroSenhaRepetir.value;
+
+        // Validações aqui :D
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(
+                {
+                    nomeUsuarioServer: nomeUsuario,
+                    emailUsuarioServer: emailUsuario,
+                    senhaUsuarioServer: senhaUsuario
+                }
+            ),
+        }
+        ).then(function(resposta) {
+            if (resposta.ok) {
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, '1000');
+            }
+        }
+        ).catch(function(resposta) {
+            alert('Erro: ' + error.message);
+        })
+    }
+</script>

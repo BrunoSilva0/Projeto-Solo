@@ -1,0 +1,122 @@
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-image: url(../assets/imgs/cadastroBG.jpg);
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+/* Cadastro */
+
+.cadastro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: none;
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: solid white 0.01px;
+    transition: 0.5s;
+}
+
+.cadastro input {
+    margin-bottom: 0.9rem;
+    padding: 10px;
+    padding-left: 40px;
+    width: 13rem;
+    border: none;
+    background-color: #efefef;
+    border-radius: 30px;
+    box-shadow: 0px 0px 5px 1px gray;
+}
+
+.cadastro button {
+    padding: 10px;
+    width: 9rem;
+    border-radius: 30px;
+    border: #c3c3c3 solid 1.5px;
+    transition: 0.5s ease-out;
+    cursor: pointer;
+}
+
+.cadastro button:hover {
+    border: none;
+    box-shadow: 0px 0px 5px 1px #605f5f;
+    transform: scale(1.1) translateY(5px);
+    transition: 0.5s ease-out;
+}
+
+.cadastro h2 {
+    margin: 0;
+    margin-bottom: 0.9rem;
+    color: white;
+}
+
+.cadastro .campo i {
+    position: absolute;
+    transform: translateX(-15.2rem) translateY(0.7rem);
+}
+
+/* Fim do Cadastro */
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: none;
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: solid white 0.01px;
+    transition: 0.5s;
+}
+
+
+.login input {
+    margin-bottom: 0.9rem;
+    padding: 10px;
+    padding-left: 40px;
+    width: 13rem;
+    border: none;
+    background-color: #efefef;
+    border-radius: 30px;
+    box-shadow: 0px 0px 5px 1px gray;
+}
+
+.login button {
+    padding: 10px;
+    width: 9rem;
+    border-radius: 30px;
+    border: #c3c3c3 solid 1.5px;
+    transition: 0.5s ease-out;
+    cursor: pointer;
+}
+
+.login button:hover {
+    border: none;
+    box-shadow: 0px 0px 5px 1px #605f5f;
+    transform: scale(1.1) translateY(5px);
+    transition: 0.5s ease-out;
+}
+
+.login h2 {
+    margin: 0;
+    margin-bottom: 0.9rem;
+    color: white;
+}
+
+.login .campo i {
+    position: absolute;
+    transform: translateX(-15.2rem) translateY(0.7rem);
+}
