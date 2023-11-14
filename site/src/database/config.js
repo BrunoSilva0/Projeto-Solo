@@ -23,6 +23,7 @@ var mySqlConfig = {
     database: "projectlang",
     user: "usuario",
     password: "usuario",
+    port: "3308"
 };
 
 function executar(instrucao) {

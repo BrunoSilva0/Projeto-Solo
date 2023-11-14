@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/styleCadastroLogin.css">
         <link rel="stylesheet" href="css/style.css">
-        <link rel="website icon" type="png" href="../public/assets/imgs/logo.png">
+        <link rel="website icon" type="png" href="assets/imgs/logo.png">
         <script src="https://kit.fontawesome.com/ce9ef0d266.js" crossorigin="anonymous"></script>
         <title>ProjectLang | Cadastro</title>
     </head>
@@ -14,7 +14,7 @@
     <div class="header">
         <div class="containerHeader">
             <div class="Branding">
-                <img src="../public/assets/imgs/logo.png" alt="">
+                <img src="assets/imgs/logo.png" alt="">
                 <h2>
                     Project Lang
                 </h2>
@@ -89,8 +89,6 @@
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    // crie um atributo que recebe o valor recuperado aqui
-                    // Agora vá para o arquivo routes/usuario.js
                     nomeServer: nomeVar,
                     emailServer: emailVar,
                     senhaServer: senhaVar
