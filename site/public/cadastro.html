@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="website icon" type="png" href="../public/assets/imgs/logo.png">
         <script src="https://kit.fontawesome.com/ce9ef0d266.js" crossorigin="anonymous"></script>
-        <title>Cadastro</title>
+        <title>ProjectLang | Cadastro</title>
     </head>
 
     <div class="header">
@@ -64,7 +64,7 @@
                         <i class="fa-solid fa-check"></i>
                     </div>
 
-                    <button onclick="cadastroCheck()">
+                    <button onclick="cadastrar()">
                         Cadastrar
                     </button>
                 </div>
@@ -76,36 +76,29 @@
 </html>
 
 <script>
-    function cadastroCheck() {
-        var nomeUsuario = input_cadastroUsername.value;
-        var emailUsuario = input_cadastroEmail.value;
-        var senhaUsuario = input_cadastroSenha.value;
-        var senhaConfirmacao = input_cadastroSenhaRepetir.value;
+    function cadastrar() {
 
-        // Validações aqui :D
+        var nomeVar = input_cadastroUsername.value;
+        var emailVar = input_cadastroEmail.value;
+        var senhaVar = input_cadastroSenha.value;
+        var confirmacaoSenhaVar = input_cadastroSenhaRepetir.value;
 
         fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(
-                {
-                    nomeUsuarioServer: nomeUsuario,
-                    emailUsuarioServer: emailUsuario,
-                    senhaUsuarioServer: senhaUsuario
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nomeVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+                if (resposta.ok) {
+                    window.location.href = "login.html"
                 }
-            ),
-        }
-        ).then(function(resposta) {
-            if (resposta.ok) {
-                setTimeout(() => {
-                    window.location.href = 'login.html';
-                }, '1000');
-            }
-        }
-        ).catch(function(resposta) {
-            alert('Erro: ' + error.message);
-        })
+            })
     }
 </script>

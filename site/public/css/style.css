@@ -154,6 +154,8 @@ h2 {
     margin-left: 3%;
     background-image: url(../assets/imgs/boasVindasBG.jpg);
     background-size: cover;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .containerTexto {
@@ -174,3 +176,24 @@ h2 {
     margin-top: 0;
 }
 
+.missao {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.3rem;
+    margin-left: 3%;
+    padding: 1rem 2rem;
+    width: 60rem;
+    background-color: aqua;
+    border-radius: 15px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    width: 89.89%;
+    background-image: url(../assets/imgs/missaoBG.jpg);
+    background-size: cover;
+    color: white;
+}
+
+.missao h2{
+    text-align: center;
+
+}
