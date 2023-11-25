@@ -1,0 +1,54 @@
+.containerProfile {
+    background-color: lightgray;
+    height: 10vw;
+    margin: 0 2%;
+    border-radius: 10px;
+    background-image: url(../assets/imgs/detalhesBG.jpg);
+    background-size: cover;
+}
+
+.containerProfile {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.userPerfil span {
+    font-size: 160%;
+    margin: 0 100px;
+    color: rgb(0, 0, 0);
+    background-color: #d3d3d3a8;
+    padding: 7px;
+    border-radius: 15px;
+}
+
+/* Clicker */
+
+.containerClicker {
+    background-color: lightgray;
+    height: 7vw;
+    margin: 2% 2%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 125%;
+    height: auto;
+    padding: 2vh 0;
+}
+
+.containerClicker button {
+    margin-top: 1%;
+    padding: 20px;
+    border-radius: 20px;
+    border: none;
+    transition: all 0.2s;
+    font-size: medium;
+}
+
+.containerClicker button:hover {
+    background-color: #eaeaea;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 7px 1px #939393;
+}

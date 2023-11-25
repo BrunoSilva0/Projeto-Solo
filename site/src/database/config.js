@@ -21,8 +21,8 @@ var mysql = require("mysql2");
 var mySqlConfig = {
     host: "localhost",
     database: "projectlang",
-    user: "usuario",
-    password: "usuario",
+    user: "admin",
+    password: "admin",
     port: "3308"
 };
 

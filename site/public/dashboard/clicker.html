@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../css/style.css">
+		<link rel="stylesheet" href="../css/styleClicker.css*">
+		<link rel="website icon" type="png" href="../assets/imgs/logo.png">
+		<title>ProjectLang | Clicker</title>
+	</head>
+
+	<style>
+		body {
+			margin-top: 9.3%;
+		}
+
+		.containerClicker {
+			display: flex;
+			align-items: center;
+			justify-content: space-evenly;
+			height: 70vh;
+			margin-top: 9%;
+		}
+
+		.clicker button {
+			background-color: white;
+			border: none;
+			cursor: pointer;
+		}
+
+		#salvar {
+			background-color: lightgrey;
+			padding: 15px;
+			margin-top: 4%;
+			border-radius: 15px;
+		}
+
+		.clicker img {
+			height: 30vh;
+		}
+
+		#dicasAleatorias {
+			text-align: center;
+			width: 17rem;
+		}
+
+		.clicker {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.powerup {
+			border: solid #747474;
+			border-radius: 10px;
+			width: 20vw;
+			text-align: center;
+		}
+
+		.powerup p {
+			margin-bottom: 7%;
+			font-size: 1.5rem;
+		}
+
+		.powerup .poder {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-around;
+			margin: 0 5%;
+			margin-bottom: 9%;
+			padding: 5%;
+			border: solid #acacac;
+			border-radius: 30px;
+			cursor: pointer;
+			transition: 0.3s;
+		}
+
+		.poder p {
+			font-size: 12px;
+			margin-bottom: 0;
+		}
+
+		.poder:hover {
+			background-color: #dad9d9;
+			transition: 0.3s;
+		}
+	</style>
+
+	<!-- Começo do header -->
+	<!-- Estilo dele localizado no 'style.css' -->
+
+	<div class="header">
+		<div class="containerHeader">
+			<div class="Branding">
+				<img src="../assets/imgs/logo.png" alt="">
+				<h2>
+					Project Lang
+				</h2>
+			</div>
+			<ul>
+				<div class="containerNav">
+					<a href="homeLogado.html">
+						<li>Home</li>
+					</a>
+					<a href="#Sobre">
+						<li>Sobre</li>
+					</a>
+
+				</div>
+				<div class="containerLogCad">
+					<a href="../index.html" id="homeCad">
+						<li>Sair</li>
+					</a>
+				</div>
+			</ul>
+		</div>
+	</div>
+
+	<!-- Fim do header -->
+
+	<div class="tudo">
+
+		<div class="containerClicker">
+			<div class="clicker">
+
+				<button onclick="clicar()">
+					<img src="../assets/imgs/botaoClicker.png">
+				</button>
+
+				<div id="cliques">Cliques:</div>
+				<div id="dicasAleatorias">Dicas Aparecerão aqui</div>
+
+				<button onclick="salvarClicker()" id="salvar">
+					Salvar Jogo
+				</button>
+
+			</div>
+
+			<div class="powerup">
+				<p id="ponto">Pontos: </p>
+				<div class="poder" onclick="ativarAuto()">
+					Auto Clicker
+					<p id="poderClicker">Custo: 20pts</p>
+				</div>
+
+				<div class="poder" onclick="ativarTeclado()">
+					Teclado Mecânico
+					<p id="poderTeclado">Custo: 50pts</p>
+				</div>
+
+				<div class="poder">
+					Monitor 4K
+					<p>Custo: 85pts</p>
+				</div>
+
+				<div class="poder">
+					Cadeira Gamer
+					<p>Custo: 120pts</p>
+				</div>
+
+				<div class="poder">
+					Luzes RGB
+					<p>Custo: 200pts</p>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<script>
+		var save = []
+
+		var dicas = [
+			"Comente seu código. Isso pode ajudar outros desenvolvedores a entender o que você fez.",
+			"Use nomes de variáveis e funções descritivos para tornar seu código mais legível.",
+			"Evite o uso excessivo de variáveis globais para evitar conflitos de nomes e problemas de escopo.",
+			"Use '===' em vez de '==' para comparações, pois '===' também verifica o tipo de um dado.",
+			"Use métodos de array como map, reduce, filter e forEach em vez de loops for tradicionais.",
+			"Trate erros usando try/catch para evitar que seu programa pare de funcionar quando ocorrerem erros.",
+			"Use funções de seta para funções anônimas para uma sintaxe mais limpa.",
+			"Use 'use strict' no início de seus scripts para evitar erros comuns.",
+			"Mantenha seu código DRY (Don't Repeat Yourself) criando funções para tarefas que você realiza várias vezes.",
+			"Use o operador ternário para tornar seu código mais conciso."
+		];
+
+		var clique = 0
+		var pontos = 0
+
+		var nIntervId;
+
+		var autoClick = false;
+		var teclado = false;
+
+		function clicar() {
+			if (clique % 2) {
+				var escolher = parseInt(Math.random() * dicas.length - 1);
+				dicasAleatorias.innerHTML = dicas[escolher];
+			}
+
+			if (teclado == true) {
+				pontos += 3
+			} else {
+				pontos += 1;
+			}
+			clique += 1;
+
+			cliques.innerHTML = `Cliques: ${clique}`;
+			ponto.innerHTML = `Pontos: ${pontos}`;
+		}
+
+		function salvarClicker() {
+			save.splice(0, 1, clique);
+			alert('Jogo salvo com sucesso!');
+		}
+
+		function ativarAuto() {
+			if (autoClick == true) {
+				alert('Você já tem este powerup.');
+			}
+			else if (pontos >= 20) {
+				autoClick = true
+				poderClicker.innerHTML = `Comprado!`;
+
+				pontos -= 20;
+				ponto.innerHTML = `Pontos:  ${pontos}`;
+
+				setInterval(autoClicker, 1000);
+			}
+			else {
+				alert('Sem pontos suficientes.');
+			}
+		}
+
+		function autoClicker() {
+			clique += 1;
+			pontos += 1;
+			cliques.innerHTML = `Cliques: ${clique}`;
+			ponto.innerHTML = `Pontos: ${pontos}`;
+		}
+
+		function ativarTeclado() {
+			if (teclado == true) {
+				alert('Você já tem este powerup.');
+			} else if (pontos >= 50) {
+				teclado = true;
+				poderTeclado.innerHTML = `Comprado!`;
+
+				pontos -= 50;
+				ponto.innerHTML = `Pontos: ${pontos}`;
+			} else {
+				alert('Sem pontos suficientes.');
+			}
+		}
+	</script>
