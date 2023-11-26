@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="../css/style.css">
-		<link rel="stylesheet" href="../css/styleClicker.css*">
-		<link rel="website icon" type="png" href="../assets/imgs/logo.png">
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/styleClicker.css*" />
+		<link rel="website icon" type="png" href="../assets/imgs/logo.png" />
 		<title>ProjectLang | Clicker</title>
 	</head>
 
@@ -95,10 +94,8 @@
 	<div class="header">
 		<div class="containerHeader">
 			<div class="Branding">
-				<img src="../assets/imgs/logo.png" alt="">
-				<h2>
-					Project Lang
-				</h2>
+				<img src="../assets/imgs/logo.png" alt="" />
+				<h2>Project Lang</h2>
 			</div>
 			<ul>
 				<div class="containerNav">
@@ -108,7 +105,6 @@
 					<a href="#Sobre">
 						<li>Sobre</li>
 					</a>
-
 				</div>
 				<div class="containerLogCad">
 					<a href="../index.html" id="homeCad">
@@ -125,55 +121,55 @@
 
 		<div class="containerClicker">
 			<div class="clicker">
-
+	
 				<button onclick="clicar()">
 					<img src="../assets/imgs/botaoClicker.png">
 				</button>
-
+	
 				<div id="cliques">Cliques:</div>
 				<div id="dicasAleatorias">Dicas Aparecerão aqui</div>
-
+				
 				<button onclick="salvarClicker()" id="salvar">
 					Salvar Jogo
 				</button>
-
+	
 			</div>
-
+	
 			<div class="powerup">
 				<p id="ponto">Pontos: </p>
 				<div class="poder" onclick="ativarAuto()">
 					Auto Clicker
 					<p id="poderClicker">Custo: 20pts</p>
 				</div>
-
+	
 				<div class="poder" onclick="ativarTeclado()">
 					Teclado Mecânico
 					<p id="poderTeclado">Custo: 50pts</p>
 				</div>
-
-				<div class="poder">
+	
+				<div class="poder" onclick="ativarMonitor()">
 					Monitor 4K
-					<p>Custo: 85pts</p>
+					<p id="poderMonitor">Custo: 85pts</p>
 				</div>
-
-				<div class="poder">
+	
+				<div class="poder" onclick="ativarCadeira()">
 					Cadeira Gamer
-					<p>Custo: 120pts</p>
+					<p id="poderCadeira">Custo: 120pts</p>
 				</div>
-
-				<div class="poder">
+	
+				<div class="poder" onclick="ativarLuzes()">
 					Luzes RGB
-					<p>Custo: 200pts</p>
+					<p id="poderLuzes">Custo: 200pts</p>
 				</div>
 			</div>
-
+	
 		</div>
-
+	
 	</div>
-
+	
 	<script>
 		var save = []
-
+	
 		var dicas = [
 			"Comente seu código. Isso pode ajudar outros desenvolvedores a entender o que você fez.",
 			"Use nomes de variáveis e funções descritivos para tornar seu código mais legível.",
@@ -186,73 +182,131 @@
 			"Mantenha seu código DRY (Don't Repeat Yourself) criando funções para tarefas que você realiza várias vezes.",
 			"Use o operador ternário para tornar seu código mais conciso."
 		];
-
+	
 		var clique = 0
 		var pontos = 0
-
+	
 		var nIntervId;
-
+		
 		var autoClick = false;
 		var teclado = false;
-
+		var monitor = false;
+		var cadeira = false;
+		var luzes = false;
+	
+		var chanceEvento = 1
+		var pontosPorClique = 1;
+	
 		function clicar() {
 			if (clique % 2) {
 				var escolher = parseInt(Math.random() * dicas.length - 1);
 				dicasAleatorias.innerHTML = dicas[escolher];
 			}
-
+	
 			if (teclado == true) {
 				pontos += 3
 			} else {
-				pontos += 1;
+				pontos += pontosPorClique;
 			}
 			clique += 1;
-
-			cliques.innerHTML = `Cliques: ${clique}`;
+	
+			cliques.innerHTML = 'Cliques: ' + clique;
 			ponto.innerHTML = `Pontos: ${pontos}`;
 		}
-
+	
 		function salvarClicker() {
 			save.splice(0, 1, clique);
 			alert('Jogo salvo com sucesso!');
 		}
-
+	
 		function ativarAuto() {
 			if (autoClick == true) {
 				alert('Você já tem este powerup.');
-			}
+			} 
 			else if (pontos >= 20) {
 				autoClick = true
 				poderClicker.innerHTML = `Comprado!`;
-
+	
 				pontos -= 20;
 				ponto.innerHTML = `Pontos:  ${pontos}`;
-
+	
 				setInterval(autoClicker, 1000);
-			}
+			} 
 			else {
 				alert('Sem pontos suficientes.');
 			}
 		}
-
+	
 		function autoClicker() {
-			clique += 1;
-			pontos += 1;
-			cliques.innerHTML = `Cliques: ${clique}`;
-			ponto.innerHTML = `Pontos: ${pontos}`;
+				clique += 1;
+				pontos += pontosPorClique;
+				cliques.innerHTML = 'Cliques: ' + clique;
+				ponto.innerHTML = `Pontos: ${pontos}`;
 		}
-
+	
 		function ativarTeclado() {
 			if (teclado == true) {
 				alert('Você já tem este powerup.');
 			} else if (pontos >= 50) {
 				teclado = true;
 				poderTeclado.innerHTML = `Comprado!`;
-
+	
 				pontos -= 50;
 				ponto.innerHTML = `Pontos: ${pontos}`;
 			} else {
 				alert('Sem pontos suficientes.');
 			}
 		}
+	
+		function ativarMonitor() {
+			if (monitor == true) {
+				alert('Você já tem este powerup.');
+			} else if (pontos >= 85) {
+				monitor = true;
+				poderMonitor.innerHTML = `Comprado!`;
+	
+				pontos -= 85;
+				ponto.innerHTML = `Pontos: ${pontos}`;
+	
+				pontosPorClique *= 2 // Dobra os pontos
+			}
+		}
+	
+		function ativarCadeira() {
+			if (cadeira == true) {
+				alert('Você já tem este powerup.');
+			} else if (pontos >= 120) {
+				cadeira = true;
+				poderCadeira.innerHTML = `Comprado!`;
+	
+				pontos -= 120;
+				ponto.innerHTML = `Pontos: ${pontos}`;
+	
+				// Aumenta a taxa de pontos ao longo do tempo
+				setInterval(function() {
+					pontos += 1;
+					ponto.innerHTML = `Pontos: ${pontos}`;
+				}, 1000); // Ganha 1 ponto a cada segundo
+			} else {
+				alert('Sem pontos suficientes.');
+			}
+		}
+	
+		function ativarLuzes() {
+			if (luzes == true) {
+				alert('Você já tem este powerup.');
+			} else if (pontos >= 200) {
+				luzes = true;
+				poderLuzes.innerHTML = `Comprado!`;
+	
+				pontos -= 200;
+				ponto.innerHTML = `Pontos: ${pontos}`;
+	
+				// Aumenta os pontos ganhos por clique
+				pontosPorClique = 4; // 4 pontos por clique
+			} else {
+				alert('Sem pontos suficientes.');
+			}
+		}
 	</script>
+</html>
