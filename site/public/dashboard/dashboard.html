@@ -21,10 +21,10 @@
 			</div>
 			<ul>
 				<div class="containerNav">
-					<a href="homeLogado.html">
+					<a href="../index.html">
 						<li>Home</li>
 					</a>
-					<a href="#Sobre">
+					<a href="../sobre.html">
 						<li>Sobre</li>
 					</a>
 				</div>
@@ -57,6 +57,7 @@
 			</div>
 
 			<div class="containerAnalytics">
+				<h2>Analytics</h2>
 				<canvas id="grafico"></canvas>
 			</div>
 		</div>
@@ -66,16 +67,16 @@
 		username.innerHTML = sessionStorage.NOME_USUARIO;
 		email.innerHTML = sessionStorage.EMAIL_USUARIO;
 
-		const ctx = document.getElementById("grafico");
+		var dadosDoGrafico = [];
 
-		new Chart(ctx, {
+		var grafico = new Chart(document.getElementById("grafico"), {
 			type: "bar",
 			data: {
 				labels: ["Você", "Outros"],
 				datasets: [
 					{
 						label: "Pontuação do Clicker",
-						data: [10, 20],
+						data: dadosDoGrafico,
 						borderWidth: 3,
 					},
 				],
@@ -88,5 +89,69 @@
 				},
 			},
 		});
+
+		fetch("/clicker/buscarClicker", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				idUsuario: sessionStorage.ID_USUARIO
+			}),
+		}).then(function (resposta) {
+			if (resposta.status == 100) {
+				dadosDoGrafico.push(0);
+				grafico.update();
+			} else if (resposta.status == 500) {
+				dadosDoGrafico.push(0);
+				console.log("Erro no banco");
+				grafico.update();
+			} else {
+				resposta.json().then((json) => {
+					console.log(json);
+					console.log(JSON.stringify(json));
+
+					sessionStorage.PONTOS_USUARIO = json.pontos
+				}).then(
+					setTimeout(() => {
+						dadosDoGrafico.push(sessionStorage.PONTOS_USUARIO);
+						buscarMedia();
+					}, 100)
+				) ;
+			}
+		});
+
+		function buscarMedia() {
+			fetch("/clicker/buscarMedia", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				mediaPontos: 'pontos'
+			}),
+		}).then(function (resposta) {
+			if (resposta.status == 100) {
+				dadosDoGrafico.push(0);
+				grafico.update();
+			} else if (resposta.status == 500) {
+				dadosDoGrafico.push(0);
+				console.log("Erro no banco");
+				grafico.update();
+			} else {
+				resposta.json().then((json) => {
+					console.log(json);
+					console.log(JSON.stringify(json));
+
+					sessionStorage.MEDIA_PONTOS = json.media
+				}).then(
+					setTimeout(() => {
+						dadosDoGrafico.push(sessionStorage.MEDIA_PONTOS)
+						grafico.update()
+					}, 100)
+				) ;
+			}
+		});
+		}
 	</script>
 </html>

@@ -5,6 +5,8 @@ function validarSessao() {
     var id = sessionStorage.ID_USUARIO;
     var criacao = sessionStorage.CRIACAO_USUARIO;
 
+    
+
     var b_usuario = document.getElementById("b_usuario");
 
     if (email != null && nome != null && id != null && criacao != null) {

@@ -56,9 +56,20 @@
 /* Grafico */
 
 .containerAnalytics {
+    background-color: lightgrey;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 75vh;
-    margin-bottom: 3%;
+    margin: 0 2%;
+    margin-bottom: 1%;
+    padding: 4vh 7vh;
+    padding-top: 1vh;
+    border-radius: 20px;
+    height: auto;
+}
+
+.containerAnalytics h2 {
+    margin: 1.5% 0;
 }
