@@ -15,9 +15,9 @@
 
 .userPerfil span {
     font-size: 160%;
-    margin: 0 100px;
+    margin: 0 45px;
     color: rgb(0, 0, 0);
-    background-color: #d3d3d3a8;
+    background-color: #d3d3d3c5;
     padding: 7px;
     border-radius: 15px;
 }
@@ -39,7 +39,7 @@
 }
 
 .containerClicker button {
-    margin-top: 1%;
+    margin-top: 10%;
     padding: 20px;
     border-radius: 20px;
     border: none;
@@ -51,4 +51,14 @@
     background-color: #eaeaea;
     transform: scale(1.1);
     box-shadow: 0px 0px 7px 1px #939393;
+}
+
+/* Grafico */
+
+.containerAnalytics {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    margin-bottom: 3%;
 }

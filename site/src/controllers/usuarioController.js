@@ -23,10 +23,10 @@ function autenticar(req, res) {
 					if (resultadoAutenticar.length > 0) {
 						res.json({
 
-							idUsuario: resultadoAutenticar[0].id,
+							id: resultadoAutenticar[0].idUsuario,
 							email: resultadoAutenticar[0].email,
 							nome: resultadoAutenticar[0].nome,
-							senha: resultadoAutenticar[0].senha
+							criacao: resultadoAutenticar[0].criacao
 
 						});
 					} else {
@@ -83,7 +83,43 @@ function cadastrar(req, res) {
 	}
 }
 
+function cadastroClicker(req, res) {
+	var pontos = req.body.pontosServer;
+	var poderes = req.body.poderesServer;
+	var cliques = req.body.cliquesServer;
+	var id = req.body.id;
+
+	if (pontos == undefined) {
+		res.status(400).send("Seus pontos estão undefined!")
+	} 
+	else if(poderes == undefined) {
+		res.status(400).send("Seus poderes estão undefined!")
+	}
+	else if (cliques == undefined) {
+		res.status(400).send("Seus cliques estão undefined!")
+	}
+	else if (id == undefined) {
+		res.status(400).send("Seu ID está undefined!")
+	}
+	else {
+		usuarioModel
+			.cadastroClicker(pontos, poderes, cliques, id)
+			.then(function (resultado) {
+				res.json(resultado);
+			})
+			.catch(function (erro) {
+				console.log(erro);
+				console.log(
+					"\nHouve um erro ao realizar o cadastro de pontos! Erro: ",
+					erro.sqlMessage
+				);
+				res.status(500).json(erro.sqlMessage);
+			});
+	}
+}
+
 module.exports = {
 	autenticar,
 	cadastrar,
+	cadastroClicker
 };

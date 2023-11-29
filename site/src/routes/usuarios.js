@@ -8,6 +8,10 @@ router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
 
+router.post("/cadastroClicker", function (req, res) {
+    usuarioController.cadastroClicker(req, res);
+})
+
 router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });

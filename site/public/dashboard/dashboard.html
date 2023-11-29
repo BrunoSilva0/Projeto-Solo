@@ -1,71 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/styleDash.css">
-    <link rel="website icon" type="png" href="../assets/imgs/logo.png">
-    <title>ProjectLang | Dashboard</title>
-</head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/styleDash.css" />
+		<link rel="website icon" type="png" href="../assets/imgs/logo.png" />
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<title>ProjectLang | Dashboard</title>
+	</head>
 
-<!-- Começo do header -->
-<!-- Estilo dele localizado no 'style.css' -->
+	<!-- Começo do header -->
+	<!-- Estilo dele localizado no 'style.css' -->
 
-<div class="header">
-    <div class="containerHeader">
-        <div class="Branding">
-            <img src="../assets/imgs/logo.png" alt="">
-            <h2>
-                Project Lang
-            </h2>
-        </div>
-        <ul> 
-            <div class="containerNav">
-            <a href="homeLogado.html">
-                <li>Home</li>
-            </a>
-            <a href="#Sobre">
-                <li>Sobre</li>
-            </a>
-            
-        </div>
-        <div class="containerLogCad">
-            <a href="../index.html" id="homeCad">
-                <li>Sair</li>
-            </a>
-        </div>
-    </ul>
-    </div>
-</div>
+	<div class="header">
+		<div class="containerHeader">
+			<div class="Branding">
+				<img src="../assets/imgs/logo.png" alt="" />
+				<h2>Project Lang</h2>
+			</div>
+			<ul>
+				<div class="containerNav">
+					<a href="homeLogado.html">
+						<li>Home</li>
+					</a>
+					<a href="#Sobre">
+						<li>Sobre</li>
+					</a>
+				</div>
+				<div class="containerLogCad">
+					<a href="../index.html" id="homeCad">
+						<li>Sair</li>
+					</a>
+				</div>
+			</ul>
+		</div>
+	</div>
 
-<!-- Fim do header -->
+	<!-- Fim do header -->
 
-<body>
-    <div class="tudo">
+	<body>
+		<div class="tudo">
+			<div class="containerProfile">
+				<div class="userPerfil">
+					<span id="username"></span>
+					<span id="email"></span>
+				</div>
+			</div>
 
-        <div class="containerProfile">
-            <div class="userPerfil">
-                <span id="username">placeholder</span>
-                <span id="email">placeholder</span>
-                <span id="dataCriacao">placeholder</span>
-            </div>
-        </div>
+			<div class="containerClicker">
+				Dê uma olhada no meu clicker :D
 
-        <div class="containerClicker">
-            Dê uma olhada no meu clicker :D
+				<a href="clicker.html">
+					<button>Jogar!</button>
+				</a>
+			</div>
 
-                <a href="clicker.html">
-                    <button>
-                        Jogar!
-                    </button>
-                </a>
-        </div>
+			<div class="containerAnalytics">
+				<canvas id="grafico"></canvas>
+			</div>
+		</div>
+	</body>
 
-        <div class="containerAnalytics">
+	<script>
+		username.innerHTML = sessionStorage.NOME_USUARIO;
+		email.innerHTML = sessionStorage.EMAIL_USUARIO;
 
-        </div>
+		const ctx = document.getElementById("grafico");
 
-
-    </div>
-</body>
+		new Chart(ctx, {
+			type: "bar",
+			data: {
+				labels: ["Você", "Outros"],
+				datasets: [
+					{
+						label: "Pontuação do Clicker",
+						data: [10, 20],
+						borderWidth: 3,
+					},
+				],
+			},
+			options: {
+				scales: {
+					y: {
+						beginAtZero: true,
+					},
+				},
+			},
+		});
+	</script>
+</html>
