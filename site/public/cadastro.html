@@ -83,6 +83,15 @@
         var senhaVar = input_cadastroSenha.value;
         var confirmacaoSenhaVar = input_cadastroSenhaRepetir.value;
 
+        if (emailVar == "" || senhaVar == "") {
+            alert('Todos os campos devem estar preenchidos');
+            return false;
+        }
+        else if (senhaVar == "1234" || senhaVar == "123456" || senhaVar.trim().length == 0) {
+            alert('Senha inválida');
+            return false;
+        } 
+
         fetch("/usuarios/cadastrar", {
                 method: "POST",
                 headers: {

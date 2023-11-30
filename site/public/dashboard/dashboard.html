@@ -29,7 +29,7 @@
 					</a>
 				</div>
 				<div class="containerLogCad">
-					<a href="../index.html" id="homeCad">
+					<a href="../index.html" id="sair">
 						<li>Sair</li>
 					</a>
 				</div>
@@ -58,7 +58,9 @@
 
 			<div class="containerAnalytics">
 				<h2>Analytics</h2>
-				<canvas id="grafico"></canvas>
+				<div class="grafico">
+					<canvas id="grafico"></canvas>
+				</div>
 			</div>
 		</div>
 	</body>
@@ -82,10 +84,28 @@
 				],
 			},
 			options: {
+				responsive: true,
+				plugins: {
+					legend: {
+						labels: {
+							font: {
+								size: 18,
+							}
+						}
+					}
+				},
 				scales: {
 					y: {
 						beginAtZero: true,
 					},
+					x: {
+						ticks: {
+							font: {
+								size: 20,
+								weight: 'bold',
+							}
+						}
+					}, 
 				},
 			},
 		});

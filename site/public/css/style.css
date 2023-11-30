@@ -142,6 +142,11 @@ h2 {
     background-color: #818181;
 }
 
+#sair :hover {
+    border-radius: 150px;
+    background-color: #818181;
+}
+
 /* Fim do Header */
 
 @keyframes mainBoot {
@@ -225,11 +230,11 @@ h2 {
 
 /* conteudo */
 
-.web-dev {
+.dev {
     border-top: solid 0.5px #525252
 }
 
-.web-dev h2 {
+.dev h2 {
     margin: 2% 0%;
 }
 
@@ -273,4 +278,52 @@ h2 {
 #js {
     background-color: #ffbb00;
     margin-right: 2%;
+}
+
+#cpp {
+    background-color: #f34b7d;
+}
+
+#java {
+    background-color: #b07219;
+}
+
+#CS {
+    background-color: #178600;
+}
+
+#python {
+    background-color: #3572A5;
+}
+
+#ruby {
+    background-color: #741e20;
+}
+
+#php {
+    background-color: #4F5D95;
+}
+
+#swift {
+    background-color: #ffac45;
+}
+
+#kotlin {
+    background-color: #F18E33;
+}
+
+#flutter {
+    background-color: #02569B;
+}
+
+#c {
+    background-color: #555555;
+}
+
+#rust {
+    background-color: #dea584;
+}
+
+#go {
+    background-color: #00ADD8;
 }

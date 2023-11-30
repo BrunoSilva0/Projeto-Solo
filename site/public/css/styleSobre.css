@@ -1,0 +1,26 @@
+.tudo {    
+    height: 100vh;
+}
+
+.container h2{
+    text-align: center;
+    margin: 0% 3%;
+}
+
+.porque {
+    text-align: center;
+    background-color: #d4d4d456;
+    margin: 2% 3%;
+    padding: 2%;
+    padding-top: 1px;
+    border-radius: 10px;
+}
+
+.porque h2 {
+    margin-top: 2%;
+}
+
+.porque p {
+    margin: 0;
+    margin-top: 16px;
+}
