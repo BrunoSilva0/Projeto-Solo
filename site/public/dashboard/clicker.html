@@ -107,7 +107,7 @@
 					</a>
 				</div>
 				<div class="containerLogCad">
-					<a href="../index.html" id="homeCad">
+					<a id="sair" onclick="sairConta()">
 						<li>Sair</li>
 					</a>
 				</div>
@@ -327,4 +327,12 @@
                 }
             })
 	}
+</script>
+
+<script>
+    function sairConta() {
+        sessionStorage.clear()
+
+        window.location = "../index.html"
+    }
 </script>

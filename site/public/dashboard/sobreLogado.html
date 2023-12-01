@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styleSobre.css">
+    <link rel="website icon" type="png" href="../assets/imgs/logo.png">
+    <title>ProjectLang | Home</title>
+</head>
+
+<!-- Começo do header -->
+<!-- Estilo dele localizado no 'style.css' -->
+
+<div class="header">
+    <div class="containerHeader">
+        <div class="Branding">
+            <img src="../assets/imgs/logo.png" alt="">
+            <h2>
+                Project Lang
+            </h2>
+        </div>
+        <ul> 
+            <div class="containerNav">
+            <a href="homeLogado.html">
+                <li>Home</li>
+            </a>
+            <a href="sobreLogado.html">
+                <li>Sobre</li>
+            </a>
+            <a href="dashboard.html">
+                <li>Dashboard</li>
+            </a>
+            <a href="clicker.html">
+                <li>Clicker</li>
+            </a>
+        </div>
+        <div class="containerLogCad">
+            <a id="sair" onclick="sairConta()">
+                <li>Sair</li>
+            </a>
+        </div>
+    </ul>
+    </div>
+</div>
+
+<!-- Fim do header -->
+
+
+<div class="tudo">
+    <div class="container">
+        <h2>Sobre o projeto:</h2>
+
+        <div class="porque">
+            <h2>Por quê?</h2>
+            <p>
+                Meu propósito com este website é facilitar o acesso a informações que seriam complicadas de encontrar de formas convencionais.
+            </p>
+            <p>
+                Muitas das vezes você vai encontrar outros sites com muito "filler", fazendo o usuário perder tempo a encontrar algo até que relativamente simples, possivelmente causando-o a perder interesse, seja por medo da complexidade da linguagem, ou por pura frutração mesmo.
+            </p>
+            <h2>Como?</h2>
+            <p>
+                Este site foi projetado para ser simples e direto ao ponto. Aqui, você encontrará informações claras e concisas, sem o "filler" que muitas vezes torna difícil encontrar o que você está procurando. Além disso, o site é organizado de forma lógica, tornando mais fácil navegar e encontrar as informações que você precisa.
+            </p>
+            <h2>O que?</h2>
+            <p>
+                O site oferece uma variedade de cards informativos sobre várias linguagens de programação. Cada card contém um resumo do que a linguagem de programação é capaz de fazer. Seja você um iniciante procurando aprender o básico, ou um desenvolvedor experiente procurando aprimorar suas habilidades, há algo aqui para você. <br> Ao criar uma conta você tem acesso a um clicker que te dá dicas de programação e competir com outros usuários
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function sairConta() {
+        sessionStorage.clear()
+
+        window.location = "../index.html"
+    }
+</script>

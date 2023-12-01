@@ -145,6 +145,7 @@ h2 {
 #sair :hover {
     border-radius: 150px;
     background-color: #818181;
+    cursor: pointer;
 }
 
 /* Fim do Header */
